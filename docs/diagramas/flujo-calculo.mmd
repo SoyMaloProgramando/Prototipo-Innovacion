@@ -1,0 +1,46 @@
+%% Diagrama de flujo de la lógica de negocio (src/logica/calculadora.js)
+flowchart TD
+  A(["Inicio del cálculo"]) --> B[/"Datos: perfil, proyecto,
+condiciones y parámetros 2026"/]
+  B --> C{"¿El usuario escribió
+sus propias horas?"}
+  C -- Sí --> D["Horas estimadas = las del usuario"]
+  C -- No --> E["Horas estimadas = base × factor del nivel
++ unidades × horas por unidad"]
+  D --> F
+  E --> F["Imprevistos = colchón del nivel
++ 20 % × (1 − dominio)"]
+  F --> G["Horas a cobrar = estimadas + imprevistos
++ revisiones + gestión del 10 %"]
+  G --> H["Tarifa mínima = gastos × (1 + ahorro)
+÷ horas facturables del mes"]
+  H --> I["Tarifa ajustada = tarifa deseada × dominio
+× experiencia × portafolio × formación"]
+  I --> J["Base = horas × tarifa ajustada
++ horas × costo operativo"]
+  J --> K["Ajuste: × cliente × mercado
+× derechos × urgencia"]
+  K --> L["+ utilidad (margen %)"]
+  L --> M{"¿Incluir seguridad social?"}
+  M -- Sí --> N["÷ (1 − 11,6 %) para cubrir
+salud, pensión y riesgos"]
+  M -- No --> O
+  N --> O["+ costos directos
+(dólares × TRM)"]
+  O --> P{"¿Compensar la retención?"}
+  P -- Sí --> Q["÷ (1 − tasa de retención)"]
+  P -- No --> R
+  Q --> R["Redondeo comercial hacia arriba"]
+  R --> S{"¿Responsable de IVA?"}
+  S -- Sí --> T["+ IVA del 19 %"]
+  S -- No --> U
+  T --> U["Precio sin IVA y total"]
+  U --> V["Piso, precio para negociar
+y rangos junior, semi-senior y senior"]
+  V --> W["Lo que te queda = total − retención − IVA
+− aportes − costos − 4 por mil"]
+  W --> X["Fecha de entrega en días hábiles
+con festivos de Colombia"]
+  X --> Y["Chequeos de salud y recomendaciones"]
+  Y --> Z[/"Cotización en pantalla"/]
+  Z --> FIN(["Fin"])

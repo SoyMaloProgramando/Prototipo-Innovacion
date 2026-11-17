@@ -1,0 +1,45 @@
+{
+  "theme": "base",
+  "themeVariables": {
+    "fontFamily": "Arial, 'Liberation Sans', Helvetica, sans-serif",
+    "fontSize": "15px",
+    "primaryColor": "#f8effc",
+    "primaryTextColor": "#2b1a35",
+    "primaryBorderColor": "#a43bcb",
+    "secondaryColor": "#fff0f7",
+    "tertiaryColor": "#eaf8f9",
+    "lineColor": "#5e4b6b",
+    "textColor": "#2b1a35",
+    "clusterBkg": "#faf5fc",
+    "clusterBorder": "#9c86aa",
+    "edgeLabelBackground": "#ffffff",
+    "taskBkgColor": "#a43bcb",
+    "taskBorderColor": "#6c2290",
+    "taskTextColor": "#ffffff",
+    "taskTextOutsideColor": "#2b1a35",
+    "sectionBkgColor": "#faf5fc",
+    "altSectionBkgColor": "#ffffff",
+    "gridColor": "#efe6f3",
+    "doneTaskBkgColor": "#c4177c",
+    "critBkgColor": "#c4177c",
+    "todayLineColor": "#fd39a2",
+    "critBorderColor": "#8f0f5a"
+  },
+  "flowchart": {
+    "htmlLabels": false,
+    "curve": "basis",
+    "nodeSpacing": 40,
+    "rankSpacing": 46,
+    "padding": 14,
+    "wrappingWidth": 290
+  },
+  "gantt": {
+    "barHeight": 26,
+    "barGap": 6,
+    "topPadding": 56,
+    "leftPadding": 220,
+    "fontSize": 13,
+    "sectionFontSize": 13,
+    "numberSectionStyles": 2
+  }
+}

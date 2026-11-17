@@ -1,0 +1,5 @@
+# Normaliza los finales de línea en el repositorio
+* text=auto
+
+# Los .bat de Windows necesitan CRLF para funcionar bien
+*.bat text eol=crlf

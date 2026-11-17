@@ -1,0 +1,11 @@
+node_modules/
+dist/
+*.log
+registro-instalacion.txt
+verificacion-entorno.txt
+enlace-ngrok.txt
+.DS_Store
+Thumbs.db
+
+# Paquete viejo del 31 de octubre (el repositorio ya tiene todo el código)
+TarifaJusta-v1.0.zip

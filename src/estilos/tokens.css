@@ -1,0 +1,248 @@
+/*
+ * Tokens de diseño de TarifaJusta.
+ * Paleta: blanco, durazno #FCCE90, rosa #FD39A2, morado #A43BCB y turquesa #84D4D8.
+ * - Morado: color principal de la app (botones, enlaces, foco y selección).
+ * - Rosa: identifica a Multimedia. Turquesa: identifica a Sistemas. Se ven en el
+ *   billete del precio, en el catálogo y en el detalle de cada producto.
+ * - Durazno: las explicaciones (el botón "!" y sus paneles).
+ * Cada color de marca tiene una versión oscura para texto, porque el rosa y el
+ * turquesa puros no se leen bien como letra sobre blanco.
+ * Hay modo claro y modo oscuro: lo elige el botón del encabezado (data-theme).
+ */
+:root {
+  color-scheme: light;
+
+  /* Paleta de marca (valores exactos de la imagen) */
+  --durazno: #fcce90;
+  --rosa: #fd39a2;
+  --morado: #a43bcb;
+  --turquesa: #84d4d8;
+  --degradado: linear-gradient(90deg, #fd39a2 0%, #a43bcb 36%, #84d4d8 70%, #fcce90 100%);
+
+  /* Fondo y texto */
+  --papel: #ffffff;
+  --superficie: #ffffff;
+  --superficie-2: #faf5fc;
+  --superficie-3: #efe4f5;
+  --tinta: #2b1a35;
+  --tinta-2: #5e4b6b;
+  --tinta-3: #715e7b;
+  --linea: #ece2f2;
+  --linea-fuerte: #9c86aa;
+
+  /* Color principal: morado */
+  --marca: #a43bcb;
+  --marca-suave: #f8effc;
+  --acento: var(--marca);
+  --acento-suave: var(--marca-suave);
+  --sobre-acento: #ffffff;
+
+  /* Carreras: versión para texto, versión viva (paleta) y fondo suave */
+  --sistemas: #137a80;
+  --sistemas-vivo: #84d4d8;
+  --sistemas-suave: #eaf8f9;
+  --multimedia: #c4177c;
+  --multimedia-vivo: #fd39a2;
+  --multimedia-suave: #fff0f7;
+  --carrera: var(--multimedia);
+  --carrera-vivo: var(--multimedia-vivo);
+  --carrera-suave: var(--multimedia-suave);
+
+  /* Explicaciones "!" */
+  --ayuda: #fcce90;
+  --ayuda-tinta: #4a2a00;
+  --ayuda-suave: #fff4e3;
+  --ayuda-borde: #f0a94a;
+
+  /* Señales */
+  --oro: #9a6a08;
+  --alerta: #b4362a;
+  --alerta-suave: #fde7e7;
+  --aviso: #8a5300;
+  --aviso-suave: #fff4e3;
+  --bien: #1d6b2f;
+  --bien-suave: #e2f3e6;
+  --estado-bien: #0ca30c;
+  --estado-aviso: #fab219;
+  --estado-critico: #d03b3b;
+
+  /* Series de gráficas (validadas para daltonismo sobre blanco) */
+  --s1: #a43bcb;
+  --s2: #1f9aa1;
+  --s3: #e38a2e;
+  --s4: #fd39a2;
+  --s5: #5f9e3a;
+  --s6: #3f6fd8;
+  --s7: #d9534f;
+  --s8: #c26bd6;
+  --s1-t: #ffffff;
+  --s2-t: #0b0b0b;
+  --s3-t: #0b0b0b;
+  --s4-t: #0b0b0b;
+  --s5-t: #0b0b0b;
+  --s6-t: #ffffff;
+  --s7-t: #0b0b0b;
+  --s8-t: #0b0b0b;
+  --rampa-1: #c58ae0;
+  --rampa-2: #a43bcb;
+  --rampa-3: #6c2290;
+  --rejilla: #efe6f3;
+  --eje: #cdbcd8;
+
+  /* Tipografía */
+  --fuente: 'Archivo Variable', 'Archivo', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --t-12: 0.75rem;
+  --t-14: 0.875rem;
+  --t-16: 1rem;
+  --t-18: 1.125rem;
+  --t-21: 1.3125rem;
+  --t-24: 1.5rem;
+  --t-36: 2.25rem;
+  --t-48: 3rem;
+  --t-60: 3.75rem;
+
+  /* Espacio y forma */
+  --e-1: 4px;
+  --e-2: 8px;
+  --e-3: 12px;
+  --e-4: 16px;
+  --e-5: 24px;
+  --e-6: 32px;
+  --e-7: 48px;
+  --e-8: 64px;
+  --radio-control: 8px;
+  --radio-tarjeta: 12px;
+  --radio-billete: 16px;
+  --ancho-max: 1200px;
+  --sombra: 0 1px 2px rgba(43, 26, 53, 0.14);
+  --sombra-billete: 0 1px 0 rgba(43, 26, 53, 0.05), 0 16px 36px -20px rgba(108, 34, 144, 0.42);
+  --foco: 0 0 0 3px color-mix(in oklab, var(--acento) 45%, transparent);
+}
+
+[data-carrera='sistemas'] {
+  --carrera: var(--sistemas);
+  --carrera-vivo: var(--sistemas-vivo);
+  --carrera-suave: var(--sistemas-suave);
+}
+
+[data-carrera='multimedia'] {
+  --carrera: var(--multimedia);
+  --carrera-vivo: var(--multimedia-vivo);
+  --carrera-suave: var(--multimedia-suave);
+}
+
+/* Modo oscuro según el sistema, mientras no se elija otro en el botón */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    color-scheme: dark;
+    --papel: #140d1a;
+    --superficie: #1d1425;
+    --superficie-2: #261b30;
+    --superficie-3: #33263f;
+    --tinta: #f8f1fb;
+    --tinta-2: #d3c2de;
+    --tinta-3: #a593b2;
+    --linea: #382a45;
+    --linea-fuerte: #7a6590;
+    --marca: #c77de6;
+    --marca-suave: #34203f;
+    --sobre-acento: #1a0f22;
+    --sistemas: #84d4d8;
+    --sistemas-vivo: #84d4d8;
+    --sistemas-suave: #15373a;
+    --multimedia: #ff6db8;
+    --multimedia-vivo: #fd39a2;
+    --multimedia-suave: #3d1630;
+    --ayuda: #fcce90;
+    --ayuda-tinta: #3a2200;
+    --ayuda-suave: #33261a;
+    --ayuda-borde: #c98a3a;
+    --oro: #e3b24f;
+    --alerta: #f07b6d;
+    --alerta-suave: #3f1f22;
+    --aviso: #f2b860;
+    --aviso-suave: #382916;
+    --bien: #6fcf7f;
+    --bien-suave: #173322;
+    --s1: #b55ad9;
+    --s2: #1f9aa1;
+    --s3: #cf7a22;
+    --s4: #f2389b;
+    --s5: #5f9e3a;
+    --s6: #4f7fe6;
+    --s7: #de5a55;
+    --s8: #c26bd6;
+    --s1-t: #0b0b0b;
+    --s2-t: #0b0b0b;
+    --s3-t: #0b0b0b;
+    --s4-t: #0b0b0b;
+    --s5-t: #0b0b0b;
+    --s6-t: #0b0b0b;
+    --s7-t: #0b0b0b;
+    --s8-t: #0b0b0b;
+    --rampa-1: #7a35a3;
+    --rampa-2: #a85ad0;
+    --rampa-3: #dcb0f0;
+    --rejilla: #2e2238;
+    --eje: #4a3a58;
+    --sombra: 0 1px 2px rgba(0, 0, 0, 0.5);
+    --sombra-billete: 0 1px 0 rgba(0, 0, 0, 0.4), 0 16px 40px -20px rgba(0, 0, 0, 0.9);
+  }
+}
+
+/* Modo oscuro elegido con el botón */
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --papel: #140d1a;
+  --superficie: #1d1425;
+  --superficie-2: #261b30;
+  --superficie-3: #33263f;
+  --tinta: #f8f1fb;
+  --tinta-2: #d3c2de;
+  --tinta-3: #a593b2;
+  --linea: #382a45;
+  --linea-fuerte: #7a6590;
+  --marca: #c77de6;
+  --marca-suave: #34203f;
+  --sobre-acento: #1a0f22;
+  --sistemas: #84d4d8;
+  --sistemas-vivo: #84d4d8;
+  --sistemas-suave: #15373a;
+  --multimedia: #ff6db8;
+  --multimedia-vivo: #fd39a2;
+  --multimedia-suave: #3d1630;
+  --ayuda: #fcce90;
+  --ayuda-tinta: #3a2200;
+  --ayuda-suave: #33261a;
+  --ayuda-borde: #c98a3a;
+  --oro: #e3b24f;
+  --alerta: #f07b6d;
+  --alerta-suave: #3f1f22;
+  --aviso: #f2b860;
+  --aviso-suave: #382916;
+  --bien: #6fcf7f;
+  --bien-suave: #173322;
+  --s1: #b55ad9;
+  --s2: #1f9aa1;
+  --s3: #cf7a22;
+  --s4: #f2389b;
+  --s5: #5f9e3a;
+  --s6: #4f7fe6;
+  --s7: #de5a55;
+  --s8: #c26bd6;
+  --s1-t: #0b0b0b;
+  --s2-t: #0b0b0b;
+  --s3-t: #0b0b0b;
+  --s4-t: #0b0b0b;
+  --s5-t: #0b0b0b;
+  --s6-t: #0b0b0b;
+  --s7-t: #0b0b0b;
+  --s8-t: #0b0b0b;
+  --rampa-1: #7a35a3;
+  --rampa-2: #a85ad0;
+  --rampa-3: #dcb0f0;
+  --rejilla: #2e2238;
+  --eje: #4a3a58;
+  --sombra: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --sombra-billete: 0 1px 0 rgba(0, 0, 0, 0.4), 0 16px 40px -20px rgba(0, 0, 0, 0.9);
+}

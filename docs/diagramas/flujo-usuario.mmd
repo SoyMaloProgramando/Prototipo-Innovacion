@@ -1,0 +1,43 @@
+%% Diagrama de flujo del usuario en TarifaJusta
+%% Óvalo: inicio o fin. Paralelogramo: datos que entran o salen. Rombo: decisión. Rectángulo: proceso.
+flowchart TD
+  A(["Inicio"]) --> B["Página de inicio"]
+  B --> C{"¿Prueba un ejemplo?"}
+  C -- Sí --> D[/"Elige un producto de ejemplo
+y mueve el dominio"/]
+  D --> E["Ve el precio en el billete"]
+  E --> F
+  C -- No --> F["Abre Cotizar"]
+  F --> F2["Lee la guía de 5 pasos.
+Cada dato tiene un botón ! que dice
+qué poner, con un ejemplo"]
+  F2 --> G[/"Paso 1. Perfil: carrera, experiencia,
+gastos, horas y costos de trabajo"/]
+  G --> H["Calcula tarifa mínima
+y costo operativo por hora"]
+  H --> I[/"Paso 2. Producto: catálogo,
+unidades y complejidad"/]
+  I --> J["Sugiere las horas del catálogo"]
+  J --> K[/"Paso 3. Horas, tarifa por hora,
+dominio de 0 a 100 %, revisiones y urgencia"/]
+  K --> L[/"Paso 4. Cliente, derechos, costos directos,
+utilidad, aportes, retención, IVA y pago"/]
+  L --> M["El motor de cálculo
+recalcula en vivo"]
+  M --> N["Resultado: precio, piso, mercado,
+gráficas y recomendaciones"]
+  N --> O{"¿Le convence?"}
+  O -- No --> P["Ajusta los datos"]
+  P --> G
+  O -- Sí --> Q{"¿Qué quiere hacer?"}
+  Q -- Guardar --> R["Guarda en el historial
+(estado de React, sin base de datos)"]
+  Q -- Imprimir --> S[/"Cotización para el cliente en PDF"/]
+  Q -- Compartir --> T["Enlace de ngrok y código QR"]
+  R --> U{"¿Comparar?"}
+  U -- Sí --> V["Compara de 2 a 4 cotizaciones
+y exporta JSON o CSV"]
+  U -- No --> W(["Fin"])
+  V --> W
+  S --> W
+  T --> W

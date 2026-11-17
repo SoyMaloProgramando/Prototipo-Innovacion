@@ -1,0 +1,34 @@
+{
+  "name": "tarifajusta",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Cotizador de precios para recién egresados de Ingeniería de Sistemas e Ingeniería en Multimedia",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "start": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "compartir": "node scripts/compartir.mjs",
+    "ngrok": "ngrok http 4173",
+    "docs": "node scripts/generar-docs.mjs",
+    "festivos": "node scripts/generar-festivos.mjs"
+  },
+  "engines": {
+    "node": "^20.19.0 || >=22.12.0"
+  },
+  "dependencies": {
+    "@fontsource-variable/archivo": "^5.3.0",
+    "qrcode": "^1.5.4",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^6.1.2",
+    "date-holidays": "^3.38.0",
+    "vite": "^8.3.5",
+    "vitest": "^5.0.5"
+  }
+}

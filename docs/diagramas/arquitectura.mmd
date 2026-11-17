@@ -1,0 +1,39 @@
+%% Arquitectura: cómo viajan los datos dentro de la app y hacia los estudiantes
+flowchart LR
+  subgraph UI["Interfaz en React"]
+    PAG["Páginas
+Inicio, Cotizar, Resultado,
+Catálogo, Metodología, Historial"]
+    COMP["Componentes
+asistente, billete, gráficas"]
+  end
+  subgraph EST["Estado global sin base de datos"]
+    RED["cotizadorReducer
+recibe acciones"]
+    CTX["CotizadorContext
+useReducer + useMemo"]
+  end
+  subgraph LOG["Lógica de negocio: funciones puras"]
+    CALC["calculadora.js"]
+    MOD["horas, tarifas, impuestos,
+mercado, calendario,
+recomendaciones"]
+  end
+  subgraph DAT["Datos"]
+    CAT["Catálogo de 80 productos"]
+    PAR["Parámetros de Colombia 2026"]
+  end
+  PAG --> COMP
+  COMP -- "acción" --> RED
+  RED -- "nuevo estado" --> CTX
+  CTX -- "estado" --> CALC
+  CALC --> MOD
+  CAT --> CALC
+  PAR --> CALC
+  CALC -- "resultado" --> CTX
+  CTX -- "estado y resultado" --> PAG
+  VITE["Servidor de Vite
+puerto 5173 o 4173"] --> NG["ngrok
+enlace público HTTPS"]
+  NG --> ALU["Estudiantes
+en su navegador"]

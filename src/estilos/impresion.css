@@ -1,0 +1,70 @@
+/*
+ * Impresión: desde la página de resultado solo sale la cotización para el cliente.
+ * Desde otras páginas se imprime el contenido sin encabezado ni menú.
+ */
+@media print {
+  @page {
+    size: letter;
+    margin: 16mm;
+  }
+
+  :root {
+    color-scheme: light;
+  }
+
+  body {
+    background: #ffffff;
+    color: #2b1a35;
+  }
+
+  .encabezado,
+  .pie,
+  .saltar,
+  .no-imprimir,
+  .resumen-movil,
+  .resultado-pantalla,
+  .modal,
+  .ayuda-boton,
+  .ayuda-panel,
+  .barra-ayuda,
+  .guia,
+  .boton-tema {
+    display: none !important;
+  }
+
+  .pagina {
+    padding: 0;
+  }
+
+  .resultado-cabeza {
+    display: none;
+  }
+
+  .vista-cliente {
+    margin: 0;
+    padding: 0;
+    border: 0;
+  }
+
+  .hoja {
+    max-width: none;
+    padding: 0;
+    border: 0;
+    border-top: 4px solid #a43bcb;
+    box-shadow: none;
+    border-radius: 0;
+    padding-top: 12px;
+  }
+
+  .hoja::before {
+    display: none;
+  }
+
+  .hoja-firma {
+    break-inside: avoid;
+  }
+
+  a {
+    text-decoration: none;
+  }
+}
